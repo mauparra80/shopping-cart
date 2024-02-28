@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import APIManager from "../modules/APImanger";
+import ShopItem from "../modules/ShopItem";
 
 export default function Shop() {
   const [apiData, setApiData] = useState(null);
@@ -17,20 +18,10 @@ export default function Shop() {
 
   return (
 
-    <div id="shop">
+    <div id="shop" className="body-container">
       <div className="items">
       {apiData ? (apiData.map((item) => (
-        <div className="item" key={item.id}>
-          <div className="img-container">
-            <img src={item.image} alt="" />
-          </div>
-          
-          <div className="text-container">
-            <h3 className="item-title">{item.title}</h3>
-            <p className="item-price">{item.price}</p>
-          </div>
-          
-        </div>
+        <ShopItem key={item.id} item={item}/>
         ))) : (
           <h1>Loading</h1>
         )

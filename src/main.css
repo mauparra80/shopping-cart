@@ -1,0 +1,179 @@
+/* will try a global css theme and then
+a per module nested structure*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: var(--color-lightBlack);
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  --color-lightBlack: rgba(0, 0, 0, 0.8);
+  --color-darkGreen: #283618dd;
+  --color-lightGreen: #606c38dd;
+  --color-lightOrange: #dda15edd;
+  --color-darkOrange: #bc6b25c0;
+  --color-cream: #fefae0dd;
+
+  margin: auto;
+  max-width: 2500px;
+  background-color: var(--color-cream);
+}
+
+nav *{
+  text-decoration: none;
+  list-style: none;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--color-lightBlack);
+}
+.main-button {
+  background-color: var(--color-darkGreen);
+  color: white;
+  border: none;
+}
+.main-button:hover {
+  outline: 2px solid var(--color-darkGreen)
+}
+
+.body-container {
+  margin: 0px 50px 0px 50px;
+}
+
+.item-price {
+  font-size: 1.2rem;
+}
+.item-price::before {
+  content: "$";
+}
+.item-title {
+  font-size: 1.3rem;
+}
+.icon {
+  font-size: 25px;
+}
+
+
+
+
+#shop {
+  background-color: var(--color-cream);
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+
+    background-color: white;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.271);
+
+    max-height: 500px;
+    padding: 20px;
+
+    .img-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+      margin: auto;
+    }
+    
+    img {
+      max-width: 100%;
+      max-height: 300px; 
+      width: auto; 
+      height: auto; 
+    }
+
+    .text-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      gap: 5px;
+      height: 120px;
+
+      h3 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0px 50px 0px 50px;
+  color: white;
+  height: 100px;
+}
+
+#header .logoImg {
+  width: 100px;
+}
+#header ul {
+  display: flex;
+  gap: 20px;
+}
+#header h3 {
+  font-family: 'Roboto Slab','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+#header li *:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+.cart-module {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  background-color: white;
+  transition: transform 0.3s ease-in-out; /* Corrected transition timing function */
+  transform: translateX(100%); /* Parentheses instead of curly braces */
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .title-exit, .product-total, .total {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  
+
+}
+
+.cart-open {
+  transform: translateX(0);
+}
+
+#footer {
+  background: gray;
+}

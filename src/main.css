@@ -11,12 +11,14 @@ a per module nested structure*/
 
 #root {
   --color-lightBlack: rgba(0, 0, 0, 0.8);
+  --color-veryLightBlack: rgba(0, 0, 0, 0.5);
   --color-darkGreen: #283618dd;
   --color-lightGreen: #606c38dd;
   --color-lightOrange: #dda15edd;
   --color-darkOrange: #bc6b25c0;
   --color-cream: #fefae0dd;
 
+  
   margin: auto;
   max-width: 2500px;
   background-color: var(--color-cream);
@@ -37,8 +39,19 @@ button {
   color: white;
   border: none;
 }
-.main-button:hover {
-  outline: 2px solid var(--color-darkGreen)
+.light-button {
+  background-color: var(--color-cream);
+  color: var(--color-darkGreen);
+  border: 1px solid var(--color-darkGreen);
+  font-weight: 600;
+}
+.main-button:hover{
+  outline: 2px solid var(--color-darkGreen);
+}
+.light-button:hover {
+  border: 1px solid var(--color-darkOrange);
+  outline: 1px solid var(--color-darkOrange)
+  color: var(--color-darkOrange)
 }
 
 .body-container {
@@ -57,122 +70,69 @@ button {
 .icon {
   font-size: 25px;
 }
-
-
-
-
-#shop {
-  background-color: var(--color-cream);
-
-  .items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-
-  }
-
-  .item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-
-    background-color: white;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.271);
-
-    max-height: 500px;
-    padding: 20px;
-
-    .img-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      
-      margin: auto;
-    }
-    
-    img {
-      max-width: 100%;
-      max-height: 300px; 
-      width: auto; 
-      height: auto; 
-    }
-
-    .text-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      gap: 5px;
-      height: 120px;
-
-      h3 {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-    }
-  }
+.light-font {
+  color: var(--color-veryLightBlack);
+}
+.prevent-scroll {
+  overflow: hidden;
+}
+.pointer:hover {
+  cursor: pointer;
 }
 
-
-#header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0px 50px 0px 50px;
-  color: white;
-  height: 100px;
-}
-
-#header .logoImg {
-  width: 100px;
-}
-#header ul {
-  display: flex;
-  gap: 20px;
-}
-#header h3 {
-  font-family: 'Roboto Slab','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 500;
-}
-#header li *:hover {
-  text-decoration: underline;
-}
-
-
-
-
-
-.cart-module {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 25%;
-  height: 100%;
-  background-color: white;
-  transition: transform 0.3s ease-in-out; /* Corrected transition timing function */
-  transform: translateX(100%); /* Parentheses instead of curly braces */
-
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-
-  .title-exit, .product-total, .total {
-    display: flex;
-    justify-content: space-between;
-  }
-
+#categories-dropdown {
+  display: none;
+  position: absolute;
+  left: 50%; /* Center the dropdown menu */
+  transform: translateY(0) translateX(-50%); /* Initial position for animation */
   
+  background-color: var(--color-darkGreen);
+  padding: 10px;
+  box-shadow: 2px 2px 5px 2px var(--color-veryLightBlack);
 
+  animation: slideDown 0.3s ease;
 }
 
-.cart-open {
-  transform: translateX(0);
+.categories-dropdown-container{
+  position: relative;
 }
+
+.categories-dropdown-container:hover #categories-dropdown, #categories-drowpdown {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  gap: 10px;
+}
+
+.category {
+  padding: 20px 20px;
+  outline: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+.category:hover {
+  background-color: white;
+
+  h3 {
+    color: black;
+  }
+}
+.category h3 {
+  color: white;
+}
+
+@keyframes slideDown {
+  from  {
+    opacity: 0;
+    transform: translateY(-10px) translateX((-50%));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+
 
 #footer {
   background: gray;

@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { cartManager } from "./cart";
+import { cartManager } from "./cart/cart";
 
 export default function ShopItem({item}){
   const [mouseOver, setMouseOver] = useState(false);

@@ -1,9 +1,9 @@
 import {createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./pages/home";
-import Shop from "./pages/shop";
+import Shop from "./pages/shop/shop.jsx";
 import ErrorPage from "./pages/errorPage";
-import Header from "./modules/header";
-import Footer from "./modules/footer";
+import Header from "./modules/header/header.jsx";
+import Footer from "./modules/footer/footer.jsx";
 
 const Layout = () =>
   <>
@@ -25,6 +25,7 @@ const Router = () => {
         },
         {
           path: "/shop",
+          // Component: {Shop},
           element: <Shop />,
         },
       ]

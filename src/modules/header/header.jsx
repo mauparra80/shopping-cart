@@ -1,19 +1,37 @@
 import { Link } from "react-router-dom";
-import React, {useState} from "react";
-import logoImg from "../assets/wm.svg";
-import Cart from "./cart";
-
-
+import React, {useState, useEffect} from "react";
+import './headerStyle.css';
+import logoImg from "../../assets/wm.svg";
+import Cart from "../cart/cart";
+import APIManager from "../APImanger";
+import Categories from "../Categories";
 
 export default function Header() {
   const [cartOpen, setCartOpen] = useState(false);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [categoryData, setCategoryData] = useState(null);
+
+  useEffect(() => {
+    async function getCategories() {
+      const data = await APIManager.fetchCategories();
+      setCategoryData(data);
+      console.log("just set this category data", data);
+    }
+    getCategories();
+  },[])
 
   const handleCartClick = () => {
     setCartOpen((previousSet) => !previousSet)
+    document.querySelector("body").classList.add("prevent-scroll");
   }
 
   const exitCart = () => {
     setCartOpen(false);
+    document.querySelector("body").classList.remove("prevent-scroll");
+  }
+
+  const handleCategoriesClick = () => {
+    setCategoriesOpen(true);
   }
 
   return (
@@ -25,10 +43,11 @@ export default function Header() {
             <Link to="/"><h3>Home</h3></Link>
           </li>
           <li>
-            <Link to="/shop"><h3>Shop</h3></Link>
+            <Link to='/shop'><h3>Shop</h3></Link>
           </li>
-          <li>
-            <Link><h3>Categories</h3></Link>
+          <li className="categories-dropdown-container">
+            <h3 className="categories" onClick={() => handleCategoriesClick()}>Categories</h3>
+            <Categories categoryData={categoryData} />
           </li>
           <li>
             <Link><h3>About</h3></Link>

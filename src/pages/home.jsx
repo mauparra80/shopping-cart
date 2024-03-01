@@ -1,17 +1,11 @@
 import { Link } from "react-router-dom";
 import APImanager from "../modules/APImanger"
-import Header from "../modules/header";
+import Header from "../modules/header/header";
 
 /*
 TODO
-- set up full cart system
-  - add to cart button adds item to cart object
-  - cart can be viewed from cart button
-    -add num of item, delete
-
 -set up categories 
-  - create dropdown menu only
-  - each category will print a shop page with only listed items
+  -add category title to shop page
 
 -set up home page
   - think of a theme and get some pics (copy a good site)
@@ -21,6 +15,8 @@ TODO
 - implement caching cart into local memory
 
 - make sure everything has proptypes
+
+- make API work faster, it updates everytime we chose a category but we need to store it somewhere.
 */
 
 export default function Home() {

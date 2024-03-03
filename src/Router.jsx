@@ -1,5 +1,5 @@
 import {createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Home from "./pages/home";
+import Home from "./pages/home/home.jsx";
 import Shop from "./pages/shop/shop.jsx";
 import ErrorPage from "./pages/errorPage";
 import Header from "./modules/header/header.jsx";

@@ -3,17 +3,21 @@ import { useLocation } from "react-router-dom";
 import './shopStyle.css'
 import APIManager from "../../modules/APImanger";
 import ShopItem from "../../modules/ShopItem";
+import bannerImg from "../../assets/shop-regular-banner.jpg"
 
 export default function Shop() {
   const [apiData, setApiData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All Items")
   const location = useLocation();
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await APIManager.fetchData();
-        const selectedCategory = location.state || "none";
-        const filteredData = filterData(data, selectedCategory);
+        const categoryFromLocation = location.state || "All Items"
+        setSelectedCategory(categoryFromLocation);
+        
+        const filteredData = filterData(data, categoryFromLocation);
         setApiData(filteredData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -24,6 +28,11 @@ export default function Shop() {
 
   return (
     <div id="shop" className="body-container">
+      <div className="banner-container">
+        <img src={bannerImg} alt="banner image of accessories" />
+        <h1 className="shop-title">{selectedCategory}</h1>
+        {console.log("current category", selectedCategory)};
+      </div>
       <div className="items">
         {apiData.length > 0 ? (
           apiData.map((item) => (
@@ -39,7 +48,7 @@ export default function Shop() {
 
 // Filter shop items using category
 const filterData = (data, category) => {
-  if (category === "none") {
+  if (category === "All Items") {
     return data;
   }
   return data.filter((item) => item.category === category);

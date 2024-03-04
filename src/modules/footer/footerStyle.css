@@ -1,0 +1,36 @@
+
+
+.footer-section{
+  display: flex;
+  justify-content:space-around;
+  padding: 20px 0
+}
+
+.footer-main {
+  padding: 50px 200px 50px 200px;
+}
+
+.footer-bottom ul {
+  display: flex;
+  gap: 20px;
+}
+
+ul, li, a, p {
+  text-decoration: none;
+  list-style: none;
+  color: var(--color-veryLightBlack);
+  font-size: .9rem;
+}
+
+.signature img {
+  width: 100px;
+}
+.signature p {
+  text-align: center;
+}
+
+.footer-line {
+  border-color: rgba(128, 128, 128, 0.225);
+  margin-bottom: 20px;
+}
+

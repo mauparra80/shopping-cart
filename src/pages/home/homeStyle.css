@@ -42,4 +42,45 @@
       margin-top: 20px;
     }
   }
+
+  .warranty-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 100px 0;
+  }
+  .diamond-container{
+    position:relative;
+  }
+  .diamond {
+    background-color: var(--color-darkOrange);
+    width: 150px;
+    height: 150px;
+    transform: rotate(45deg);
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.386);
+  }
+  .diamond-container h3 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .warranty-prompt h2 {
+    margin-top: 50px;
+    font-size: 3rem;
+  }
+  .warranty-prompt p {
+   margin: 0 200px;
+   text-align: center;
+  }
+  .warranty-prompt button {
+    padding: 10px 20px;
+    border-radius: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
 }

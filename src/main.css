@@ -79,6 +79,9 @@ button {
 .pointer:hover {
   cursor: pointer;
 }
+a {
+  cursor: pointer;
+}
 
 #categories-dropdown {
   display: none;
@@ -133,7 +136,3 @@ button {
 }
 
 
-
-#footer {
-  background: gray;
-}

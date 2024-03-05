@@ -10,9 +10,9 @@ export default function Shop() {
   const [apiData, setApiData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All Items")
   const location = useLocation();
-
   const [getTotalCartItems] = useOutletContext();
 
+  //get API data and set categories
   useEffect(() => {
     async function fetchData() {
       try {

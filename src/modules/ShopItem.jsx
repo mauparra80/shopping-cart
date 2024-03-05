@@ -1,22 +1,11 @@
-import React, {useState} from "react"
+
+import PropTypes from 'prop-types';
 import { cartManager } from "./cart/cart";
 
 export default function ShopItem({item, getTotalCartItems}){
-  const [mouseOver, setMouseOver] = useState(false);
-
-  const handleMouseEnter = () => {
-    setMouseOver(true);
-  };
-
-  const handleMouseLeave = () => {
-    setMouseOver(false);
-  }
 
   return (
-    <div className="item"
-         onMouseEnter={() => handleMouseEnter()}
-         onMouseLeave={() => handleMouseLeave()}
-         >
+    <div className="item">
         <div className="img-container">
           <img src={item.image} alt="" />
         </div>
@@ -34,4 +23,9 @@ export default function ShopItem({item, getTotalCartItems}){
         
     </div>
   )
+}
+
+ShopItem.propTypes = {
+  item: PropTypes.object,
+  getTotalCartItems: PropTypes.func
 }

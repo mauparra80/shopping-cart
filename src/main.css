@@ -83,56 +83,6 @@ a {
   cursor: pointer;
 }
 
-#categories-dropdown {
-  display: none;
-  position: absolute;
-  left: 50%; /* Center the dropdown menu */
-  transform: translateY(0) translateX(-50%); /* Initial position for animation */
-  
-  background-color: var(--color-darkGreen);
-  padding: 10px;
-  box-shadow: 2px 2px 5px 2px var(--color-veryLightBlack);
 
-  animation: slideDown 0.3s ease;
-}
-
-.categories-dropdown-container{
-  position: relative;
-}
-
-.categories-dropdown-container:hover #categories-dropdown, #categories-drowpdown {
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  gap: 10px;
-}
-
-.category {
-  padding: 20px 20px;
-  outline: 1px solid white;
-  display: flex;
-  align-items: center;
-}
-.category:hover {
-  background-color: white;
-
-  h3 {
-    color: black;
-  }
-}
-.category h3 {
-  color: white;
-}
-
-@keyframes slideDown {
-  from  {
-    opacity: 0;
-    transform: translateY(-10px) translateX((-50%));
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateX(-50%);
-  }
-}
 
 

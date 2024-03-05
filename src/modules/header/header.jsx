@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import './headerStyle.css';
-import logoImg from "../../assets/wm.svg";
+import PropTypes from 'prop-types';
+import logoImg from "../../assets/MysticModeLogo.png";
 import Cart from "../cart/cart";
-import { cartManager } from "../cart/cart";
 import APIManager from "../APImanger";
 import Categories from "../Categories";
 
-let totalItems = 0;
 
-export default function Header({totalCartItems}) {
+export default function Header({totalCartItems, getTotalCartItems}) {
   const [cartOpen, setCartOpen] = useState(false);
-  const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [categoryData, setCategoryData] = useState(null);
   
+  //update categories with API categories
   useEffect(() => {
     async function getCategories() {
       const data = await APIManager.fetchCategories();
@@ -21,6 +20,11 @@ export default function Header({totalCartItems}) {
     }
     getCategories();
   },[])
+
+  //update items in cart when cart opens or closes
+  useEffect(() => {
+    getTotalCartItems();
+  },[cartOpen])
 
   
 
@@ -32,10 +36,6 @@ export default function Header({totalCartItems}) {
   const exitCart = () => {
     setCartOpen(false);
     document.querySelector("body").classList.remove("prevent-scroll");
-  }
-
-  const handleCategoriesClick = () => {
-    setCategoriesOpen(true);
   }
 
   return (
@@ -50,7 +50,7 @@ export default function Header({totalCartItems}) {
             <Link to='/shop'><h3>Shop</h3></Link>
           </li>
           <li className="categories-dropdown-container">
-            <h3 className="categories" onClick={() => handleCategoriesClick()}>Categories</h3>
+            <h3 className="categories">Categories</h3>
             <Categories categoryData={categoryData} />
           </li>
           <li>
@@ -80,4 +80,10 @@ export default function Header({totalCartItems}) {
       
     </div>
   )
+}
+
+
+Header.propTypes = {
+  totalCartItems: PropTypes.number,
+  getTotalCartItems: PropTypes.func
 }

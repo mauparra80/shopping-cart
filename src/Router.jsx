@@ -8,7 +8,7 @@ import Footer from "./modules/footer/footer.jsx";
 import { cartManager } from "./modules/cart/cart.jsx";
 
 const Layout = () => {
-  const [totalCartItems, setTotalCartItems] = useState(0);
+  const [totalCartItems, setTotalCartItems] = useState(cartManager.getTotalItems());
 
   const getTotalCartItems= () => {
     setTotalCartItems(cartManager.getTotalItems());
@@ -17,7 +17,7 @@ const Layout = () => {
 
 return (
   <>
-    <Header totalCartItems={totalCartItems}/>
+    <Header totalCartItems={totalCartItems} getTotalCartItems={getTotalCartItems}/>
     <Outlet context={[getTotalCartItems]}/>
     <Footer />
   </>

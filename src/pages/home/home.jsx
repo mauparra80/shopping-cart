@@ -1,19 +1,18 @@
-import { Link } from "react-router-dom";
+
 import splash1 from "../../assets/splash1.jpg";
 import splash2 from "../../assets/splash2.jpg";
 import splash3 from "../../assets/splash3.jpg";
 import './homeStyle.css'
 /*
 TODO
-- make shop items better
 
-- implement caching cart into local memory
-
-- make sure everything has proptypes
+- fix responsiveness
 
 - make API work faster, it updates everytime we chose a category but we need to store it somewhere.
 
 -loading page
+
+-Error page
 */
 
 export default function Home() {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export default function Categories({categoryData}) {
   console.log(categoryData);
@@ -15,4 +16,8 @@ export default function Categories({categoryData}) {
       
     </div>
   )
+}
+
+Categories.propTypes = {
+  categoryData: PropTypes.array
 }

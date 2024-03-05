@@ -5,7 +5,7 @@ import './cartStyle.css';
 
 class CartManager {
   constructor() {
-    this.cartItems = [];
+    this.cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; //retrieve local storage
   }
 
   //check if item already added and add count
@@ -19,21 +19,26 @@ class CartManager {
       newItem.itemCount = 1;
       this.cartItems.push(newItem);
     }
-
-    console.log("items in the cart", this.cartItems);
+    this.updateStorage();
   }
 
   addItemCount(item) {
     const existingItem = this.cartItems.find((currentItem) =>  currentItem.id === item.id);
     if(existingItem) {existingItem.itemCount++;}
+    this.updateStorage();
   }
   subItemCount(item) {
     const existingItem = this.cartItems.find((currentItem) =>  currentItem.id === item.id);
     if(existingItem && existingItem.itemCount !== 1) {existingItem.itemCount--;}
+    this.updateStorage();
   }
   deleteItem(item) {
     const filteredItems = this.cartItems.filter((currentItem) => currentItem !== item);
     if(filteredItems) {this.cartItems = filteredItems}
+    this.updateStorage();
+  }
+  updateStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
   
 
@@ -58,13 +63,14 @@ class CartManager {
 export const cartManager = new CartManager();
 
 
-export default function Cart({cartOpen, exitCart}) {
+
+
+export default function Cart({exitCart}) {
   const [cartItems, setCartItems] = useState([]);
   const {expectedDateFrom, expectedDateTo} = getExpectedDate();
 
   //update cartItems when cart closes
   useEffect(() => {
-    console.log("cart is now", cartOpen);
     const newCartItems = cartManager.getCartItems();
     setCartItems(newCartItems);
 
@@ -73,6 +79,7 @@ export default function Cart({cartOpen, exitCart}) {
       document.querySelector(".cart-module").classList.add("cart-open");
     }, 10);
 
+    //TODO: add animation on closing
     return () => {
       const timeout = setTimeout(() => {
         document.querySelector(".cart-module").classList.remove("cart-open");
@@ -151,6 +158,7 @@ export default function Cart({cartOpen, exitCart}) {
   )
 }
 
+//calculate fake shipping date (today + 5-8 days)
 const getExpectedDate = () => {
   const today = new Date();
   const shippingTime = 5;

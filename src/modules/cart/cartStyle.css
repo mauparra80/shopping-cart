@@ -105,7 +105,13 @@
   .exit-button {
     padding: 5px 10px 5px ;
     font-size: 1.2rem;
-    font-weight: 300
+    font-weight: 300;
+    background-color:white;
+  }
+  .exit-button:hover {
+    background-color: var(--color-veryLightBlack);
+    color: white;
+    font-weight: 500;
   }
   .delete-item {
     width: 100%;

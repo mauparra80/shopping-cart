@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import './shopStyle.css'
 import APIManager from "../../modules/APImanger";
 import ShopItem from "../../modules/ShopItem";
@@ -9,6 +10,8 @@ export default function Shop() {
   const [apiData, setApiData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All Items")
   const location = useLocation();
+
+  const [getTotalCartItems] = useOutletContext();
 
   useEffect(() => {
     async function fetchData() {
@@ -31,12 +34,11 @@ export default function Shop() {
       <div className="banner-container">
         <img src={bannerImg} alt="banner image of accessories" />
         <h1 className="shop-title">{selectedCategory}</h1>
-        {console.log("current category", selectedCategory)};
       </div>
       <div className="items">
         {apiData.length > 0 ? (
           apiData.map((item) => (
-            <ShopItem key={item.id} item={item}/>
+            <ShopItem key={item.id} item={item} getTotalCartItems={getTotalCartItems}/>
           ))
         ) : (
           <h1>Loading</h1>

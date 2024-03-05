@@ -1,16 +1,28 @@
 import {createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { useState } from "react";
 import Home from "./pages/home/home.jsx";
 import Shop from "./pages/shop/shop.jsx";
 import ErrorPage from "./pages/errorPage";
 import Header from "./modules/header/header.jsx";
 import Footer from "./modules/footer/footer.jsx";
+import { cartManager } from "./modules/cart/cart.jsx";
 
-const Layout = () =>
+const Layout = () => {
+  const [totalCartItems, setTotalCartItems] = useState(0);
+
+  const getTotalCartItems= () => {
+    setTotalCartItems(cartManager.getTotalItems());
+    console.log("gettotalcartitems activated!!!")
+  }
+
+return (
   <>
-    <Header />
-    <Outlet />
+    <Header totalCartItems={totalCartItems}/>
+    <Outlet context={[getTotalCartItems]}/>
     <Footer />
   </>
+)
+}
 
 const Router = () => {
   const router = createBrowserRouter([

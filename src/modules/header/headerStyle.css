@@ -30,3 +30,25 @@
 .categories:hover #categories-dropdown {
   display: block;
 }
+
+.cart-icon-container {
+  position: relative;
+}
+.cart-icon-container:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.live-cartCount {
+  position: absolute;
+  right: -10px;
+  top: -15px;
+
+  background-color: var(--color-lightOrange);
+  border-radius: 20px;
+  width: 25px;
+  height: 25px;
+  padding-top: 2px;
+
+  text-align: center;
+  font-size: 1.2rem;
+}

@@ -21,9 +21,10 @@
 
     background-color: white;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.271);
-
-    max-height: 500px;
-    padding: 20px;
+    height: 450px;
+    padding: 20px 20px 0 20px;
+    overflow: hidden;
+    
 
     .img-container {
       display: flex;
@@ -39,6 +40,7 @@
       max-height: 300px; 
       width: auto; 
       height: auto; 
+      transition: transform 0.3s ease;
     }
 
     .text-container {
@@ -47,14 +49,32 @@
       justify-content: end;
       gap: 5px;
       height: 120px;
+      background-color: rgba(255, 255, 255, 0.382);
+      transform: translateY(50px);
+      transition: transform 0.3s ease;
 
       h3 {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
+      button {
+        padding: 20px 0;
+      }
     }
   }
+  .item:hover {
+    img {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
+    .text-container {
+      transform: translateY(-20px);
+      transition: transform .3s ease;
+    }
+
+  }
+
 
   .banner-container {
     position: relative;

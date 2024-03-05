@@ -5,11 +5,7 @@ import splash3 from "../../assets/splash3.jpg";
 import './homeStyle.css'
 /*
 TODO
-
--set up home page
-  - think of a theme and get some pics (copy a good site)
-
-- set up about
+- make shop items better
 
 - implement caching cart into local memory
 

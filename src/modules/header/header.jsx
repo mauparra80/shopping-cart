@@ -3,22 +3,26 @@ import React, {useState, useEffect} from "react";
 import './headerStyle.css';
 import logoImg from "../../assets/wm.svg";
 import Cart from "../cart/cart";
+import { cartManager } from "../cart/cart";
 import APIManager from "../APImanger";
 import Categories from "../Categories";
 
-export default function Header() {
+let totalItems = 0;
+
+export default function Header({totalCartItems}) {
   const [cartOpen, setCartOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [categoryData, setCategoryData] = useState(null);
-
+  
   useEffect(() => {
     async function getCategories() {
       const data = await APIManager.fetchCategories();
       setCategoryData(data);
-      console.log("just set this category data", data);
     }
     getCategories();
   },[])
+
+  
 
   const handleCartClick = () => {
     setCartOpen((previousSet) => !previousSet)
@@ -62,8 +66,9 @@ export default function Header() {
           <li>
           <i className="fi fi-rr-user icon"></i>
           </li>
-          <li>
+          <li className="cart-icon-container">
             <i className="fi fi-rr-shopping-cart icon" onClick={() => handleCartClick()}></i>
+            <span className="live-cartCount">{totalCartItems}</span>
           </li>
         </ul>
       </nav>

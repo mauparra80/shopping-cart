@@ -47,6 +47,13 @@ class CartManager {
     })
     return totalPrice;
   }
+  getTotalItems() {
+    let totalItems = 0;
+    this.cartItems.map((item) => {
+      totalItems += (item.itemCount);
+    })
+    return totalItems;
+  }
 }
 export const cartManager = new CartManager();
 
@@ -94,7 +101,7 @@ export default function Cart({cartOpen, exitCart}) {
         <div className="cart-top">
           <div className="title-exit">
             <h1>Your Cart</h1>
-            <button className="light-button exit-button" onClick={() => exitCart()}>X</button>
+            <button className="exit-button" onClick={() => exitCart()}>X</button>
           </div>
           <div className="product-total">
             <p className="light-font">PRODUCT</p>

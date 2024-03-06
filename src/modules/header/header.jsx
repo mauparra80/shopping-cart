@@ -66,8 +66,8 @@ export default function Header({totalCartItems, getTotalCartItems}) {
           <li>
           <i className="fi fi-rr-user icon"></i>
           </li>
-          <li className="cart-icon-container">
-            <i className="fi fi-rr-shopping-cart icon" onClick={() => handleCartClick()}></i>
+          <li className="cart-icon-container" onClick={() => handleCartClick()}>
+            <i className="fi fi-rr-shopping-cart icon" ></i>
             <span className="live-cartCount">{totalCartItems}</span>
           </li>
         </ul>

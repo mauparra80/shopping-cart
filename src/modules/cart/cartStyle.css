@@ -13,8 +13,8 @@
   width: clamp(300px, 500px, 500px);
   height: 100%;
   background-color: white;
-  transition: transform 0.3s ease-in-out; /* Corrected transition timing function */
-  transform: translateX(100%); /* Parentheses instead of curly braces */
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%); 
 
   display: flex;
   flex-direction: column;
@@ -120,4 +120,10 @@
 }
 .cart-open {
   transform: translateX(0);
+}
+
+@media only screen and (max-width: 500px) {
+  .cart-module {
+    width: 100vw;
+  }
 }

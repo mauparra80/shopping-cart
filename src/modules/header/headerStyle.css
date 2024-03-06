@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 100px;
+  padding: 0 50px;
   background-color: var(--color-cream);
   color: white;
   height: 100px;
@@ -57,8 +57,8 @@
 #categories-dropdown {
   display: none;
   position: absolute;
-  left: 50%; /* Center the dropdown menu */
-  transform: translateY(0) translateX(-50%); /* Initial position for animation */
+  left: 50%; 
+  transform: translateY(0) translateX(-50%); 
   
   background-color: var(--color-darkGreen);
   padding: 10px;
@@ -103,5 +103,23 @@
   to {
     opacity: 1;
     transform: translateY(0) translateX(-50%);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h3 {
+    font-size: .7rem;
+  }
+  #header {
+    padding: 20px;
+  }
+  #header ul {
+    gap: 5px;
+  }
+  #header .logoImg {
+    width: 50px;
+  }
+  .icon {
+    font-size: 10px;
   }
 }

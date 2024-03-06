@@ -5,6 +5,7 @@ import splash3 from "../../assets/splash3.jpg";
 import './homeStyle.css'
 /*
 TODO
+-change tab title and image
 
 - fix responsiveness
 
@@ -20,10 +21,11 @@ export default function Home() {
   return (
     <div id="home" className="body-container">
       <div className="splash-container section-container">
-        <div className="splash-image"><img src={splash1} alt="fashion model" /></div>
-        <div className="splash-image"><img src={splash2} alt="fashion model" /></div>
-        <div className="splash-image"><img src={splash3} alt="fashion model" /></div>
+        <img src={splash1} alt="fashion model" className="splash-image"/>
+        <img src={splash2} alt="fashion model" className="splash-image"/>
+        <img src={splash3} alt="fashion model" className="splash-image" />
       </div>
+      
       <div className="splash-prompt">
         <h3>Mystic Mode</h3>
         <p>Fashion that transends time</p>

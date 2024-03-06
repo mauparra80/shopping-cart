@@ -54,9 +54,7 @@ button {
   color: var(--color-darkOrange)
 }
 
-.body-container {
-  margin: 0px 50px 0px 50px;
-}
+
 
 .item-price {
   font-size: 1.2rem;

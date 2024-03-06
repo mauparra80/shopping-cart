@@ -1,19 +1,24 @@
 #home {
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
   
 
   .splash-container {
     position: relative;
     display: flex;
     justify-content: center;
-    height: 45vw;
-
+    align-items: center;
+    height: 75vh;
+    width: 100%;
+    overflow: hidden;
+    
   }
-  .splash-image img{
-    object-fit: contain;
+  .splash-image{
+    flex: 1;
+    object-fit: cover;
     height: 100%;
+    
   }
   .splash-prompt {
     position: absolute;

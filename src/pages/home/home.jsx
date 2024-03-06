@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import splash1 from "../../assets/splash1.jpg";
 import splash2 from "../../assets/splash2.jpg";
 import splash3 from "../../assets/splash3.jpg";
@@ -29,7 +29,8 @@ export default function Home() {
       <div className="splash-prompt">
         <h3>Mystic Mode</h3>
         <p>Fashion that transends time</p>
-        <button className="main-button">Shop Now</button>
+        <Link to="/shop"><button className="main-button pointer">Shop Now</button></Link>
+        
       </div>
       <div className="section-container warranty-prompt">
         <div className="diamond-container">

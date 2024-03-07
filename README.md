@@ -11,7 +11,7 @@ A practice site emulating an ecomerce platform.
 </td>
 <td align="right">
 
-[![Live Preview](./src/assets/livePreview.png)]([https://www.example.com](https://mysticmodeshop.netlify.app/))
+[![Live Preview](./src/assets/livePreview.png)](https://mysticmodeshop.netlify.app/)
 
 </td>
 </tr>

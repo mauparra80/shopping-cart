@@ -1,6 +1,21 @@
+
+<table>
+<tr>
+<td>
+
 # Mystic Mode Shop Site
 
 A practice site emulating an ecomerce platform.
+
+
+</td>
+<td align="right">
+
+[![Live Preview](./src/assets/livePreview.png)]([https://www.example.com](https://mysticmodeshop.netlify.app/))
+
+</td>
+</tr>
+</table>
 
 
 ## Skills, Techniques, and methods practiced.
@@ -28,8 +43,8 @@ A practice site emulating an ecomerce platform.
   - [Salkan Backpacks](https://www.discoversalkan.com/) for site design inspiration
   - [Pixel](https://www.pexels.com/)
 
-- Live Preview https://mysticmodeshop.netlify.app/
+### [Live Preview](https://mysticmodeshop.netlify.app/)
 
-[![Button Alt Text](https://www.example.com/button-image.png)](https://www.example.com)
+
 
 

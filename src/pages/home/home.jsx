@@ -41,6 +41,11 @@ export default function Home() {
         <p>We mean it when we say our clothing and gear are quality made. Thats why we offer a lifetime guarantee with all of our products.</p>
         <button className="main-button">Find out more</button>
       </div>
+
+      <div className="section-container project-prompt">
+        <h2>This is an example e-shop website</h2>
+        <p>With this said, many of the links are not implemented and there are no filters on the shop page</p>
+      </div>
     </div>
   )
 }

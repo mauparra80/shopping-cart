@@ -92,9 +92,37 @@
     font-size: 1.2rem;
   }
 
+  .section-container {
+    margin-bottom: 200px;
+  }
+
+  .project-prompt {
+    background: var(--color-lightOrange);
+    border: 2px solid var(--color-lightGreen);
+    box-shadow: 2px 2px 3px 3px rgba(95, 95, 95, 0.292);
+    padding: 50px;
+    
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    h2 {
+      font-size: 3rem;
+      color: white;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+
+    
+  }
+
 
 @media only screen and (max-width:480px) {
-  .splash-prompt h3 {
+  .project-prompt {
+    padding: 20px;
+  }
+  .splash-prompt h3, .project-prompt h2 {
     font-size: 2rem;
   }
   .warranty-prompt h2 {

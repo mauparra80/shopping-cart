@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div id="footer">
       <div className="footer-section footer-main">
-        <a href="https://github.com/mauparra80" className='signature'>
+        <a href="https://github.com/mauparra80" target='_blank' className='signature'>
           <img src={GithubMark} alt="github mark" />
           <p>Mauparra80</p>
         </a>
